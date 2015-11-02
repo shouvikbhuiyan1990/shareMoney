@@ -1,0 +1,14 @@
+<form class="row record-display">
+	<div class="col-md-3"><input ng-readonly="!rec.newRecord" type="text" placeholder=" Name" ng-model="name" ng-init="name = rec.name"/></div>
+	<div class="col-md-3"><input ng-readonly="true" type="text"  placeholder="Total" ng-model="total" ng-init="total = rec.total"/></div>
+	<div class="col-md-3">
+		<div class="input-grp clearfix">
+			<select ng-model="amountOption" ng-init="amountOption='add'">
+				<option value="add">ADD</option>
+				<option value="delete">DELETE</option>
+			</select>
+			<input type="text" placeholder="Amount" ng-model="amount" ng-init="amount = 0"/>
+		</div>
+	</div>
+	<div class="col-md-3 col-form-btn"><button class="btn btn-submit" type="submit">update</button><button class="btn btn-submit btn-delete" ng-click="deleteOne($event)">Delete</button></div>
+</form>

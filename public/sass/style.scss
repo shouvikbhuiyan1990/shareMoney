@@ -1,0 +1,82 @@
+.rec-sec{
+	input{
+		padding : 10px;
+		margin : 10px 0;
+	}
+	.col-form-btn{
+		padding-top :5px;
+		button{
+			&:first-child{
+				margin-right : 12px;
+			}
+		}
+	}
+	.record-display{
+		.input-grp{
+			select{
+				width : 30%;
+				float : left;
+				padding : 12px 8px;
+				border-right : none;
+				cursor : pointer;
+			}
+			input{
+				width : 70%;
+				float : left;
+				margin : 0;
+			}
+		}
+	}
+}
+.expense-chart{
+    .chart-container{
+        width: 25%;
+        margin: 0 auto;
+    }
+    .chart-extended{
+        width: 50%;
+        float: left;
+    }
+    .chart-special-comments{
+        color: red;
+        width: 50%;
+        float: left;
+    }
+}
+.error{
+	padding : 22px 0;
+	color : red;
+	font-size : 18px;
+}
+
+	.no-records{
+		padding : 40px 0;
+	}
+	.expense-report{
+		margin-top : 25px;
+		table{
+			th{
+				border : 1px solid #ccc;
+				text-align: center;
+				font-weight : bold;
+			}
+			td{
+				border : 1px solid #ccc;
+				text-align: center;
+			}
+		}
+	}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

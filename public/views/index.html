@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>Share Your Money</title>
+	<link rel='stylesheet' href='/stylesheets/reset.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+	<div class="container" ng-app="homeCalc" ng-controller="homeCalcCtrl">
+		<h1>Sharing Calculation App</h1>
+		<div class="btn-group" role="group" aria-label="...">
+		  <div class="btn-group" role="group">
+		    <button class="btn btn-default" ng-click="addMoreRecords()" ng-disabled="noRrecords">Add More</button>
+		  </div>
+		  <div class="btn-group" role="group">
+		    <button class="btn btn-default" ng-click="generateExpenseReport()" ng-disabled="noRrecords">Generate Expense Report</button>
+		  </div>
+		  <div class="btn-group" role="group">
+		  	<button class="btn btn-default" ng-click="deleteAll()" ng-disabled="noRrecords">Delete All</button>
+		  </div>
+		</div>
+		
+		<div ng-show="noRrecords" class="no-records">
+			<p>No Records Found. Please click  <button class="btn btn-default" ng-click="addMoreRecords()">Add</button> to add records </p>
+		</div>
+
+		<div ng-hide="noRrecords">
+			
+			<div class="row">
+				<div class="col-md-3"><h4>Name</h4></div>
+				<div class="col-md-3"><h4>Spent Till Now</h4></div>
+				<div class="col-md-3"><h4>Add/Delete Amount</h4></div>
+			</div>
+			<ul>
+				<li ng-repeat="rec in record">
+					<div class="rec-sec" person-record id="{{rec._id}}"></div>
+				</li>
+			</ul>
+			<div class="error" ng-show="errDisplay"><p>Name already Exists add Another name</p></div>
+			<div class="btn-group" role="group" aria-label="...">
+			  <div class="btn-group" role="group">
+			    <button class="btn btn-default" ng-click="addMoreRecords()">Add More</button>
+			  </div>
+			  <div class="btn-group" role="group">
+			    <button class="btn btn-default" ng-click="generateExpenseReport()">Generate Expense Report</button>
+			  </div>
+			  <div class="btn-group" role="group">
+			  	<button class="btn btn-default" ng-click="deleteAll()">Delete All</button>
+			  </div>
+			</div>
+			<div class="panel panel-default expense-report" ng-show="showCalculation">
+			  <div class="panel-heading">Payables</div>
+			  <table class="table">
+			  	<tr>
+			  		<th>Payer</th>
+			  		<th>Payee</th>
+			  		<th>Payable</th>
+			  	</tr>
+			    <tr ng-repeat="pay in payableArr track by $index">
+			    	<td>{{pay.payer}}</td>
+			    	<td>{{pay.payee}}</td>
+			    	<td>{{pay.payable| number:2}}</td>
+			    </tr>
+			  </table>
+			</div> 
+            <div class="expense-chart" ng-show="chartDisplay">
+                <h2 ng-hide="noRrecords">Expense Chart</h2>
+                <div class="chart-container" ng-class="{'chart-extended':noPayClass == 'active'}">
+                    <canvas id="myChart" width="250" height="250"></canvas>
+                </div>
+                <div class="chart-special-comments clearfix" ng-show="noPayClass == 'active'">
+                    <ul>
+                        <li ng-repeat="person in noPay">{{person.name}} has not make any payment</li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src="/javascripts/chart.js/Chart.js"></script>
+    <script src='/javascripts/angular.min.js'></script>
+    <script src='/javascripts/main.js'></script>
+</body>
+</html>

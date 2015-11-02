@@ -1,0 +1,100 @@
+/* line 2, ../sass/style.scss */
+.rec-sec input {
+  padding: 10px;
+  margin: 10px 0;
+}
+/* line 6, ../sass/style.scss */
+.rec-sec .col-form-btn {
+  padding-top: 5px;
+}
+/* line 9, ../sass/style.scss */
+.rec-sec .col-form-btn button:first-child {
+  margin-right: 12px;
+}
+/* line 16, ../sass/style.scss */
+.rec-sec .record-display .input-grp select {
+  width: 30%;
+  float: left;
+  padding: 12px 8px;
+  border-right: none;
+  cursor: pointer;
+}
+/* line 23, ../sass/style.scss */
+.rec-sec .record-display .input-grp input {
+  width: 70%;
+  float: left;
+  margin: 0;
+}
+
+/* line 32, ../sass/style.scss */
+.expense-chart .chart-container {
+  width: 25%;
+  margin: 0 auto;
+}
+/* line 36, ../sass/style.scss */
+.expense-chart .chart-extended {
+  width: 50%;
+  float: left;
+}
+/* line 40, ../sass/style.scss */
+.expense-chart .chart-special-comments {
+  color: red;
+  width: 50%;
+  float: left;
+}
+
+/* line 46, ../sass/style.scss */
+.error {
+  padding: 22px 0;
+  color: red;
+  font-size: 18px;
+}
+
+/* line 52, ../sass/style.scss */
+.no-records {
+  padding: 40px 0;
+}
+
+/* line 55, ../sass/style.scss */
+.expense-report {
+  margin-top: 25px;
+}
+/* line 58, ../sass/style.scss */
+.expense-report table th {
+  border: 1px solid #ccc;
+  text-align: center;
+  font-weight: bold;
+}
+/* line 63, ../sass/style.scss */
+.expense-report table td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* line 70, ../sass/style.scss */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+/* line 78, ../sass/style.scss */
+.clearfix {
+  display: inline-block;
+}
+
+/* start commented backslash hack \*/
+/* line 80, ../sass/style.scss */
+* html .clearfix {
+  height: 1%;
+}
+
+/* line 81, ../sass/style.scss */
+.clearfix {
+  display: block;
+}
+
+/* close commented backslash hack */

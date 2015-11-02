@@ -1,0 +1,63 @@
+html
+  head
+    title Share Your Money
+    link(rel='stylesheet', href='/stylesheets/reset.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .container(ng-app='homeCalc', ng-controller='homeCalcCtrl')
+      h1 Sharing Calculation App
+      .btn-group(role='group', aria-label='...')
+        .btn-group(role='group')
+          button.btn.btn-default(ng-click='addMoreRecords()', ng-disabled='noRrecords') Add More
+        .btn-group(role='group')
+          button.btn.btn-default(ng-click='generateExpenseReport()', ng-disabled='noRrecords') Generate Expense Report
+        .btn-group(role='group')
+          button.btn.btn-default(ng-click='deleteAll()', ng-disabled='noRrecords') Delete All
+      .no-records(ng-show='noRrecords')
+        p
+          | No Records Found. Please click  
+          button.btn.btn-default(ng-click='addMoreRecords()') Add
+          |  to add records
+      div(ng-hide='noRrecords')
+        .row
+          .col-md-3
+            h4 Name
+          .col-md-3
+            h4 Spent Till Now
+          .col-md-3
+            h4 Add/Delete Amount
+        ul
+          li(ng-repeat='rec in record')
+            .rec-sec(person-record='', id='{{rec._id}}')
+        .error(ng-show='errDisplay')
+          p Name already Exists add Another name
+        .btn-group(role='group', aria-label='...')
+          .btn-group(role='group')
+            button.btn.btn-default(ng-click='addMoreRecords()') Add More
+          .btn-group(role='group')
+            button.btn.btn-default(ng-click='generateExpenseReport()') Generate Expense Report
+          .btn-group(role='group')
+            button.btn.btn-default(ng-click='deleteAll()') Delete All
+        .panel.panel-default.expense-report(ng-show='showCalculation')
+          .panel-heading Payables
+          table.table
+            tr
+              th Payer
+              th Payee
+              th Payable
+            tr(ng-repeat='pay in payableArr track by $index')
+              td {{pay.payer}}
+              td {{pay.payee}}
+              td {{pay.payable| number:2}}
+        .expense-chart(ng-show='chartDisplay')
+          h2(ng-hide='noRrecords') Expense Chart
+          .chart-container(ng-class="{'chart-extended':noPayClass == 'active'}")
+            canvas#myChart(width='250', height='250')
+          .chart-special-comments.clearfix(ng-show="noPayClass == 'active'")
+            ul
+              li(ng-repeat='person in noPay') {{person.name}} has not make any payment
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='/javascripts/chart.js/Chart.js')
+    script(src='/javascripts/angular.min.js')
+    script(src='/javascripts/main.js')
